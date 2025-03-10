@@ -1,0 +1,10 @@
+.flashcard {
+    display: flex;
+    width: 800px;
+    height: 400px;
+    background-color: rgb(222, 196, 103);
+    flex-direction: column;
+    justify-content: center;
+    font-size: 10px;
+    color: black;
+}
