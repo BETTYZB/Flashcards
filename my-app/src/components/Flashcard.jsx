@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import './flashcard.css'
 
-function Flashcard({data}) {
+function Flashcard({data, setCurStreak, setMaxStreak, curStreak, maxStreak}) {
     const [indx, setIndx] = useState(0)
     const [flip, setFlip] = useState(true)
     const [stck, setStck] = useState([])
@@ -52,9 +52,13 @@ function Flashcard({data}) {
     function handleSubmit() {
         if (text.toLowerCase() == data[indx][1].toLowerCase()) {
             setColor("blue")
+            const newCurr = curStreak
+            setCurStreak(prev => prev + 1)
+            setMaxStreak(() => newCurr + 1 > maxStreak ? newCurr + 1: maxStreak)
         }
         else{
             setColor("Red")
+            setCurStreak(0)
         }
     }
     
